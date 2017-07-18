@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/9vdd/webpack_seed/issues"
   },
-  "homepage": "https://github.com/9vdd/webpack_seed#readme"
+  "homepage": "https://github.com/9vdd/webpack_seed#readme",
+  "devDependencies": {
+    "webpack": "^3.3.0"
+  }
 }
