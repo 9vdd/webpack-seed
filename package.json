@@ -1,0 +1,22 @@
+{
+  "name": "webpack_seed",
+  "version": "1.0.0",
+  "description": "webpack seed",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9vdd/webpack_seed.git"
+  },
+  "keywords": [
+    "webpack",
+    "seed"
+  ],
+  "author": "9vdd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/9vdd/webpack_seed/issues"
+  },
+  "homepage": "https://github.com/9vdd/webpack_seed#readme"
+}
