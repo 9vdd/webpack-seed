@@ -21,7 +21,7 @@ module.exports = {
   module: {
     rules: [{
         test: /\.html$/,
-        use: ['raw-loader'],
+        use: ['html-withimg-loader', 'raw-loader'],
         exclude: /(node_modules)/
       },
       {
@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-            use: 'css-loader?minimize'
+            use: ['css-loader?minimize', 'postcss-loader']
           })
       },
       {
