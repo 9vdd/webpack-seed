@@ -36,7 +36,7 @@ const config = merge(base, {
       filename: `${version}/style.css`
     }),
     new HtmlWebpackPlugin({
-      filename: `${version}/index.html`,
+      filename: `index.html`,
       template: './src/index.html',
       inject: true,
       minify: {
