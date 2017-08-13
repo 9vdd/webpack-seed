@@ -8,9 +8,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json'],
-    alias: {
-      'static': path.resolve(__dirname, '../src/static')
-    }
   },
   module: {
     rules: [{
