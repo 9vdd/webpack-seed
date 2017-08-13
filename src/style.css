@@ -1,5 +1,14 @@
-h1{
-  font-size: 18px;
-  font-weight: bold;
-  background: red;
+$C1: #FFF68F;
+$C2: #FF8247;
+.container {
+  display: flex;
+  height: 100px;
+  .p1 {
+    flex: 1 0 auto;
+    background: $C1;
+  }
+  .p2 {
+    flex: 1 0 auto;
+    background: $C2;
+  }
 }
