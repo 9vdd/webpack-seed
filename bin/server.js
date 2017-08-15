@@ -13,6 +13,8 @@ var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
   hot: true,
   disableHostCheck: true,
+  open: true,
+  openPage: '/index.html',
   stats: {
     colors: true // 用颜色标识
   },
