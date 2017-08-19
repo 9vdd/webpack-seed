@@ -4,7 +4,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var WebpackDevServer = require('webpack-dev-server');
 
-const port = 3000;
+const port = 3002;
 
 // config.entry.index.unshift("webpack-dev-server/client?http://localhost:" + port + "/", 'webpack/hot/dev-server');
 config.plugins.push(new OpenBrowserPlugin({

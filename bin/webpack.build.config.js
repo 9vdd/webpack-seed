@@ -4,7 +4,6 @@ const merge = require('webpack-merge')
 const uuid = require('uuid')
 const base = require('./webpack.base.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const version = uuid.v1().substr(0, 8)
 
@@ -33,25 +32,14 @@ const config = merge(base, {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: `${version}/style.css`
-    }),
-    new HtmlWebpackPlugin({
-      filename: `index.html`,
-      template: './src/index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunksSortMode: 'dependency'
+      filename: `${version}/style.css`,
+      allChunks: true
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
-
     // extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -65,11 +53,6 @@ const config = merge(base, {
         )
       }
     }),
-    // extract webpack runtime & manifest to avoid vendor chunk hash changing
-    // on every build.
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
-    })
   ]
 })
 
