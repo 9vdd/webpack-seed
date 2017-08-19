@@ -38,8 +38,8 @@ const config = merge(base, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        // drop_console: true,
-        // pure_funcs: ['console.log']
+        drop_console: true,
+        pure_funcs: ['console.log']
       },
       sourceMap: false
     }),
