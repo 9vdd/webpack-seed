@@ -1,18 +1,18 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const uuid = require('uuid')
+// const uuid = require('uuid')
 const base = require('./webpack.base.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const version = uuid.v1().substr(0, 8)
+// const version = uuid.v1().substr(0, 8)
 
 const config = merge(base, {
   devtool: false,
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-    filename: `${version}/[name].js`
+    filename: `[name].[chunkhash:8].js`
   },
   performance: {
     maxEntrypointSize: 300000,
@@ -21,19 +21,18 @@ const config = merge(base, {
   module: {
     rules: [{
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        use: [`url-loader?limit=10000&${version}/[name].[ext]`],
+        use: [`url-loader?limit=10000&img/[name].[ext]?[hash]`],
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: [`url-loader?limit=10000&${version}/[name].[ext]`],
+        use: [`url-loader?limit=10000&img/[name].[ext]?[hash]`],
         exclude: /(node_modules)/
       }
     ]
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: `${version}/style.css`,
-      allChunks: true
+      filename: `[name].[contenthash:8].css`
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -41,7 +40,7 @@ const config = merge(base, {
         drop_console: true,
         pure_funcs: ['console.log']
       },
-      sourceMap: false
+      sourceMap: false,
     }),
     // extract vendor chunks for better caching
     new webpack.optimize.CommonsChunkPlugin({
@@ -55,7 +54,7 @@ const config = merge(base, {
           !/\.css$/.test(module.request)
         )
       }
-    }),
+    })
   ]
 })
 
