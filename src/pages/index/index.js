@@ -1,19 +1,20 @@
+import 'babel-polyfill';
 import './style.css';
 
-let count = 0;
+let t = 0;
 
 function timer() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      count += 1;
+      t += 1;
       console.log(100);
-      resolve();
+      resolve(t);
     }, 1000);
   });
 }
 
 document.getElementById('btn').addEventListener('click', async () => {
-  await timer();
+  const tt = await timer();
   console.log(111);
-  document.getElementById('timer').innerText = count;
+  document.getElementById('timer').innerText = tt;
 });

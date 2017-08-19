@@ -49,7 +49,14 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: [{
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2017']
+            },
+          },
+          'eslint-loader'
+        ],
         exclude: /node_modules/
       },
       {
