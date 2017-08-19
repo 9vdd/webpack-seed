@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import './style.css';
 
 console.log('hello world');
@@ -10,7 +11,7 @@ function timer() {
       count += 1;
       console.log(count);
       resolve(count);
-    });
+    }, 1000);
   });
 }
 
